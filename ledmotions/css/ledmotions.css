@@ -1,0 +1,183 @@
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+body {
+  color: gray;
+  background-color: white;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 90px;
+	margin-bottom: 80px;
+}
+
+#title {
+  font-size: 25px;
+  color: #6a6a6a;
+  visibility: collapse;
+  opacity: 0.0;
+}
+
+@media (min-width: 750px) {
+	#title {
+	  font-size: 50px !important;
+	}
+}
+
+.title-alternate {
+  color: #bababa;
+}
+
+#footer {
+	position: fixed;
+	bottom: 0;
+	height: 60px;
+	background-color: #f8f8f8;
+	width: 100%;
+	text-align: center;
+	padding-top: 15px;
+	overflow: visible !important;
+}
+
+#logo {
+	margin-left: 20px;
+}
+
+.fb-share-button {
+	top: -8px;
+}
+
+/* */
+#search {
+	padding-top: 20px;
+  background-color: white;
+	width: 100%;
+	margin: 0;
+	min-width: 478px !important;
+}
+
+#search-body {
+	padding: 10px;
+}
+
+#search-body form .form-group {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+#search-body form .form-group label {
+	margin-right: 5px;
+}
+
+/* */
+#results {
+}
+
+#image-grid {
+  margin: 0px;
+}
+
+.image-thumbnail {
+	margin: 10px;
+	display: inline-block;
+}
+
+.image-thumbnail-main {
+	border: 1px solid #c5c5c5;
+	width: 70px;
+	height: 70px;
+	opacity: 0.8;
+}
+
+.image-thumbnail-main:hover {
+  opacity: 1.0;
+}
+
+@media (min-width: 415px) {
+	.image-thumbnail {
+		margin: 20px;
+	}
+
+	.image-thumbnail-main {
+		width: 140px;
+		height: 140px;
+	}
+}
+
+.animate-repeat {
+}
+ 
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+ 
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity:0;
+}
+ 
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+/* */
+.centered {
+  margin-right: auto;
+  margin-left: auto;
+	text-align: center;
+	width: 100%;
+}
+
+.centered:before,
+.centered:after {
+  display: table;
+  content: " ";
+}
+
+.centered:after {
+  clear: both;
+}
+
+.centered:before,
+.centered:after {
+  display: table;
+  content: " ";
+}
+
+.centered:after {
+  clear: both;
+}
+
+.navbar-header {
+	padding-top: 10px;
+}
+
+.navbar-nav {
+	padding-top: 10px;
+}
+.navbar-right {
+	padding: 20px;
+}
+
+/* */
+.blueimp-gallery > .description {
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+	width: 400px;
+	height: 200px;
+  color: #fff;
+  display: none;
+	background: rgba(255,255,255,0.51);
+	padding: 20px;
+	text-align: center;
+}
+.blueimp-gallery-controls > .description {
+  display: block;
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html ng-app="lmApp" xmlns:fb="http://ogp.me/ns/fb#">
+	<head>
+		<title>LEDMOTIONS - Frederic Lavigne Photography</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/ledmotions.css" media="screen" type="text/css" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-animate.min.js" type="text/javascript"></script>
+		<script src="js/jquery.blueimp-gallery.min.js"></script>
+
+    <script src="db/db.js" type="text/javascript"></script>
+    <script src="js/localize.js" type="text/javascript"></script>
+		<script src="js/ngDraggable.js"></script>
+    <script src="js/ledmotions.js" type="text/javascript"></script>
+
+		<link rel="icon" href="/wp-content/uploads/2013/02/favicon.ico" type="image/x-icon">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="photographie,photographie,led,diy,portrait,emotions" />
+    <meta name="description" content="LEDMOTIONS - Frederic Lavigne Photography" />
+		<meta property="og:title" content="LEDMOTIONS" />
+		<meta property="og:url" content="https://fredericlavigne.com/ledmotions/" />
+		<meta property="og:image" content="https://fredericlavigne.com/ledmotions/images/title-1.jpg" />
+		<meta property="og:site_name" content="LEDMOTIONS" />
+
+    <script type="text/x-handlebars" data-template-name="image-thumbnail">
+		<img class="image-thumbnail" {{bind-attr src=view.thumbnail}} />
+    </script>
+	</head>
+
+	<body ng-controller="ImageListController">
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=268349630465";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
+		<script type="text/javascript" async data-pin-color="red" data-pin-height="28" data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#lm-navbar-collapse">
+		      <span class="sr-only">Toggle navigation</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+				<a class="navbar-brand" href="/ledmotions">
+					<span id="title">
+							<span class="title-alternate" id="theL">L</span>E<span class="title-alternate" id="theD">D</span>MOTIONS
+					</span>
+				</a>
+			</div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="lm-navbar-collapse">
+		    <ul class="nav navbar-nav">
+		      <li><a data-toggle="modal" href="about.html" data-target="#modal">{{'about'|i18n}}</a></li>
+					<li><a href="https://www.facebook.com/photo.php?v=403168086452796&set=vb.328014317301507&type=3&theater">video teaser</a></li>
+		      <li><a href="/contact">contact</a></li>
+					<li><a href="/"><img src="img/logo.png" /></a></li>
+		    </ul>
+		  </div><!-- /.navbar-collapse -->
+
+		</div>
+
+		<div class="alert alert-info fade in">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<strong>{{'explanation.1'|i18n}}</strong>
+			<p>
+				{{'explanation.2'|i18n}}
+				<br/>
+				{{'explanation.3'|i18n}}
+				<br/>
+				{{'explanation.4'|i18n}}
+				<br/>
+				{{'explanation.5'|i18n}}
+			</p>
+		</div>
+
+		<div class="fb-like"  data-href="https://www.facebook.com/frederic.lavigne.photography" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" data-width="400"></div>
+
+		<div id="search" class="panel-group">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+			  	<h4 class="panel-title">
+			    	<a data-toggle="collapse" data-parent="#search" href="#search-body">
+			      {{'filter'|i18n}} <span class="badge">{{filteredImages.length}}</span>
+			      </a>
+						<a class="pull-right" href="#" id="permalink" data-toggle="tooltip" data-placement="left" data-original-title="{{'permalink.title'|i18n}}"
+							 title="{{'permalink.title'|i18n}}">permalink</a>
+			    </h4>
+			  </div>
+			  <div id="search-body" class="panel-collapse collapse in" ng-drop="true" ng-drop-success="onDropComplete($data,$event)">
+			<form role="form">
+
+			  <div class="form-group panel panel-default">
+				  <div class="panel-heading">{{'Sexe'|i18n}}</div>
+				  <div class="panel-body">
+						<label><input type="checkbox" ng-model="filterConfiguration.man">	{{'Homme'|i18n}}</label>
+						<label><input type="checkbox" ng-model="filterConfiguration.woman">	{{'Femme'|i18n}}</label>
+					</div>
+				</div>
+
+			  <div class="form-group panel panel-default">
+				  <div class="panel-heading">{{'Emotions'|i18n}}</div>
+				  <div class="panel-body">
+						<label><input type="checkbox" name="neutral" ng-model="filterConfiguration.emotions['neutral']"> {{'neutral'|i18n}}</label>
+						<label><input type="checkbox" name="joie" ng-model="filterConfiguration.emotions['joie']"> {{'joie'|i18n}}</label>
+						<label><input type="checkbox" name="colere" ng-model="filterConfiguration.emotions['colere']"> {{'colere'|i18n}}</label>
+						<label><input type="checkbox" name="peur" ng-model="filterConfiguration.emotions['peur']"> {{'peur'|i18n}}</label>
+						<label><input type="checkbox" name="tristesse" ng-model="filterConfiguration.emotions['tristesse']"> {{'tristesse'|i18n}}</label>
+						<label><input type="checkbox" name="folie" ng-model="filterConfiguration.emotions['folie']"> {{'folie'|i18n}}</label>
+						<label><input type="checkbox" name="surprise" ng-model="filterConfiguration.emotions['surprise']"> {{'surprise'|i18n}}</label>
+						<label><input type="checkbox" name="chagrin" ng-model="filterConfiguration.emotions['chagrin']"> {{'chagrin'|i18n}}</label>
+					</div>
+				</div>
+
+				<div class="form-group panel panel-default">
+				  <div class="panel-heading">{{'hairColor'|i18n}}</div>
+				  <div class="panel-body">
+						<label><input type="checkbox" ng-model="filterConfiguration.hairColors['hair_blond']"> {{'hairColor.blonde'|i18n}}</label>
+						<label><input type="checkbox" ng-model="filterConfiguration.hairColors['hair_other']"> {{'hairColor.other'|i18n}}</label>
+					</div>
+				</div>
+
+				<div class="form-group panel panel-default">
+				  <div class="panel-heading">{{'eyeColor'|i18n}}</div>
+				  <div class="panel-body">
+						<label><input type="checkbox" ng-model="filterConfiguration.eyeColors['eyes_brown']"> {{'eyeColor.dark'|i18n}}</label>
+						<label><input type="checkbox" ng-model="filterConfiguration.eyeColors['eyes_clear']">	{{'eyeColor.bright'|i18n}}</label>
+					</div>
+				</div>
+
+				<div class="form-group panel panel-default">
+				  <div class="panel-heading">{{'andAlso'|i18n}}</div>
+				  <div class="panel-body">
+						<label><input type="checkbox" ng-model="filterConfiguration.showHands"> {{'withHands'|i18n}}</label>
+						<label><input type="checkbox" ng-model="filterConfiguration.newOnly"> {{'newOnly'|i18n}}</label>
+					</div>
+				</div>
+
+			</form>
+		</div>
+
+
+		</div>
+	</div>
+
+		<div id="results" class="centered">
+			<div id="image-grid">
+				<a class="image-thumbnail animate-repeat" ng-repeat="image in filteredImages = (images | imageFilter:filterConfiguration) track by image.id" href="db/medium/{{image.id}}.jpg" data-gallery title="{{image.emotion}}" data-description="">
+					<img ng-drag="true" ng-drag-data="image" ng-drag-success="onDragComplete($data,$event)" ng-src="db/thumbnails/{{image.id}}.jpg" class="image-thumbnail-main" />
+				</a>
+				</div>
+		</div>
+
+		<div id="blueimp-gallery" class="blueimp-gallery  blueimp-gallery-controls">
+		    <!-- The container for the modal slides -->
+		    <div class="slides"></div>
+		    <!-- Controls for the borderless lightbox -->
+		    <h3 class="title"></h3>
+		    <p class="description"></p>
+		    <a class="prev">‹</a>
+		    <a class="next">›</a>
+		    <a class="close">×</a>
+		    <a class="play-pause"></a>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-108039-19', 'fredericlavigne.com');
+		  ga('send', 'pageview');
+
+		</script>
+	</body>
+</html>
