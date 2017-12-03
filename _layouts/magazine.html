@@ -26,7 +26,7 @@
 
 <body>
 	<header class="is-magazine">
-		<div class="columns">
+		<div class="columns is-hidden-touch">
 			<div class="column">
 				<a class="logo" href="{{ site.baseurl }}/">
 					<img src="{{ site.baseurl }}{{ site.logo }}" alt="{{ site.title }} logo" />
@@ -41,6 +41,9 @@
 	<div class="navbar-container">
 		<nav class="navbar is-magazine">
 			<div class="navbar-brand">
+				<a class="logo is-hidden-desktop" href="{{ site.baseurl }}/">
+					<img src="{{ site.baseurl }}{{ site.logo }}" alt="{{ site.title }} logo" />
+				</a>
 				<button class="button navbar-burger" data-target="navMenu">
 					<span></span>
 					<span></span>
@@ -87,7 +90,7 @@
     {{ content }}
 	</div>
 
-	<div class="is-magazine has-text-centered">
+	<div class="is-magazine has-text-centered is-hidden-touch">
 		<div class="ads" data-ad-type="leaderboard"></div>
 	</div>
 
