@@ -1,0 +1,31 @@
+---
+layout: page
+---
+
+<!-- <nav class="breadcrumb is-small" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="/">Home</a>
+    </li>
+    <li>
+      <a href="{{ site.baseurl }}/categories#{{ page.category | downcase }}">{{ page.category }}</a>
+    </li>
+    <li class="is-active">
+      <a href="#" aria-current="page">{{ page.title }}</a>
+    </li>
+  </ul>
+</nav> -->
+
+<article>
+  <p>
+    <span class="is-size-2">{{ page.title }}</span>
+    <br>
+    <small>
+      <time datetime="{{ page.date | date_to_xmlschema }}" class="time is-size-7">{{ page.date | date_to_string }}</time>
+    </small>
+  </p>
+
+  {% include share.html %}
+  
+  {{ content }}
+</article>

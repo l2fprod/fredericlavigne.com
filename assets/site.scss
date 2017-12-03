@@ -1,0 +1,103 @@
+---
+title: false
+---
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+
+html,body {
+  font-family: 'Open Sans';
+}
+
+header {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.logo img {
+  padding-top: 20px;
+}
+
+.is-magazine {
+  max-width: 1068px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.navbar-container {
+  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  margin-bottom: 30px;
+}
+
+.navbar-end {
+  margin-left: 0;
+}
+
+#banner {
+  opacity: 0;
+  transition: opacity 1.5s;
+  width: 1068px;
+  max-height: 346px;
+}
+
+.content {
+  margin-bottom: 30px;
+}
+
+.share {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+article {
+  margin-top: 20px;
+}
+
+.is-size-10 {
+  font-size: 0.65rem;
+}
+
+footer {
+  margin-top: 30px;
+}
+
+
+/* HOME */
+.home {
+  background: url(./hero.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.column-description .name {
+  color: white;
+}
+
+.column-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 128px;
+}
+
+.column-description {
+  padding: 40px;
+  font-weight: bold;
+}
+
+.projects {
+  margin-top: 30px;
+}

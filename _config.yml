@@ -1,0 +1,64 @@
+markdown: kramdown
+
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jemoji
+
+# pagination
+paginate: 10 # jekyll-paginate > items per page
+paginate_path: /blog/page:num/
+
+sass:
+  style: compressed # Style compression
+permalink: pretty  # Permalink style (/YYYY/MM/DD/page-name/)
+excerpt_separator: <!-- more --> # Marks end of excerpt in posts
+timezone: Europe/London # Timezone for blog posts and alike
+
+encoding: utf-8 # Make sure the encoding is right
+title: "Frederic Lavigne" # Site name or title, also used in jekyll-seo-tag
+logo: "/assets/logo.png" # Site logo, also used in jekyll-seo-tag
+
+collections:
+  posts:
+    title: blog # Needed for Siteleaf
+    output: true
+    description: "posts" # The post list page content
+    feature_text: |
+      posts
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      layout: page # Default layout
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post # Default layout
+
+sharing_links: # Appear at the bottom of single blog posts, uncomment and comment out as desired. Colours set the button colour
+  Twitter: "is-info"
+  LinkedIn: "is-info"
+  Hacker News: "is-dark"
+  Facebook: "is-link"
+  Google: "is-danger"
+  # Pinterest: "#BD081C"
+  # tumblr: "#36465D"
+  # Reddit: "#FF4500"
+  # Designer News: "#2D72D9"
+  # Email: ""
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - CNAME

@@ -1,0 +1,17 @@
+{% if paginator.total_pages > 1 %}
+<div class="has-text-right">
+  <a class="button is-outline is-static">Page: {{ paginator.page }} of {{ paginator.total_pages }}</a>        
+    
+  {% if paginator.previous_page %}
+  <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="button is-outlined">&larr; Previous</a>
+  {% else %}
+  <a class="button is-outline" disabled>&larr; Previous</a>
+  {% endif %}
+  
+  {% if paginator.next_page %}
+  <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="button is-outline">Next &rarr;</a>
+  {% else %}
+  <a class="button is-outline" disabled>Next &rarr;</a>
+  {% endif %}
+</div>
+{% endif %}

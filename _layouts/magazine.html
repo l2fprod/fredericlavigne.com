@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% if page.indexing == false %}
+	<meta name="robots" content="noindex">
+	{% endif %}
+	{% if page.collectionpage %}
+		{% seo title=false %}
+		{% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
+		<title>{{ collectiondata.title }} | {{ site.title }}</title>
+		<meta property="og:title" content="{{ collectiondata.title }}">
+		<meta name="description" content="{{ collectiondata.description }}">
+		<meta property="og:description" content="{{ collectiondata.description }}">
+	{% else %}
+		{% seo %}
+	{% endif %}
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
+
+	<link rel="stylesheet" href="/assets/site.css">
+</head>
+
+<body>
+	<header class="is-magazine">
+		<div class="columns">
+			<div class="column">
+				<a class="logo" href="{{ site.baseurl }}/">
+					<img src="{{ site.baseurl }}{{ site.logo }}" alt="{{ site.title }} logo" />
+				</a>
+			</div>
+			<div class="column is-10 has-text-centered">
+				<div class="ads" data-ad-type="leaderboard"></div>
+			</div>
+		</div>
+	</header>
+
+	<div class="navbar-container">
+		<nav class="navbar is-magazine">
+			<div class="navbar-brand">
+				<button class="button navbar-burger" data-target="navMenu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+			<div class="navbar-menu" id="navMenu">
+				<div class="navbar-start">
+					<a href="/" class="navbar-item is-uppercase">
+						Home
+					</a>
+					<a href="/blog" class="navbar-item is-uppercase">
+						Blog
+					</a>						
+					<a href="/ledmotions" class="navbar-item is-uppercase">
+						LEDMOTIONS
+					</a>						
+					<a href="/cv" class="navbar-item is-uppercase">
+						Resume
+					</a>						
+				</div>
+				<div class="navbar-end">
+					<a href="https://www.linkedin.com/in/fredlavigne" class="navbar-item">
+						<i class="fa fa-linkedin"></i>
+					</a>
+					<a href="https://twitter.com/l2fprod" class="navbar-item">
+						<i class="fa fa-twitter"></i>
+					</a>
+					<a href="https://github.com/l2fprod" class="navbar-item">
+						<i class="fa fa-github"></i>
+					</a>
+					<a href="https://instagram.com/l2fprod" class="navbar-item">
+						<i class="fa fa-instagram"></i>
+					</a>
+					<a href="https://facebook.com/frederic-lavigne-photography" class="navbar-item">
+						<i class="fa fa-facebook"></i>
+					</a>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<div class="content is-magazine">
+    {{ content }}
+	</div>
+
+	<div class="is-magazine has-text-centered">
+		<div class="ads" data-ad-type="leaderboard"></div>
+	</div>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="content has-text-centered">
+				<p>
+					made by <a href="https://twitter.com/l2fprod">fred</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+
+	<script async type="text/javascript" src="/assets/scripts/site.js"></script>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+	<script>
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-108039-19', 'fredericlavigne.com');
+		ga('send', 'pageview');
+	</script>
+</body>
+
+</html>

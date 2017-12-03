@@ -1,0 +1,32 @@
+<div class="is-magazine">
+  {% if paginator.posts %}
+    {% for page in paginator.posts %}
+
+    <article class="media post-list-item">
+        <figure class="media-left">
+          <p class="image is-128x128">
+            <img src="/assets/{{ page.preview_icon }}">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <a href="{{ site.baseurl }}{{ page.url }}"><span class="is-size-4">{{ page.title }}</span></a>
+              <br>
+              {% if page.category %}
+              <a class="tag is-size-10 is-warning is-rounded" href="{{ site.baseurl }}/categories#{{ page.category | downcase }}">{{ page.category }}</a>
+              {% endif %}      
+              <small><time datetime="{{ page.date | date_to_xmlschema }}" class="time is-size-7">{{ page.date | date_to_string }}</time></small>
+            </p>
+            <div class="is-size-6">
+                {{ page.excerpt | markdownify | truncatewords: 60 }}                
+            </div>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  {% endif %}
+
+  {% include post-pagination.html %}  
+</div>
+  
