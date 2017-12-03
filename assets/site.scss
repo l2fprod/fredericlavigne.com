@@ -13,27 +13,31 @@ header {
   margin-bottom: 30px;
 }
 
-.logo img {
-  padding-top: 20px;
-}
-
 .is-magazine {
   max-width: 1068px;
   margin-right: auto;
   margin-left: auto;
 }
 
+.navbar-container {
+  margin-bottom: 30px;
+}
+
 @media(min-width: 1024px) {
   .navbar-container {
     border-bottom: 1px solid lightgray;
     border-top: 1px solid lightgray;
-    margin-bottom: 30px;
   }
+
+  .logo img {
+    padding-top: 20px;
+  }
+
+  .navbar-end {
+    margin-left: 0;
+  }  
 }
 
-.navbar-end {
-  margin-left: 0;
-}
 
 #banner {
   opacity: 0;
