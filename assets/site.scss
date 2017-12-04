@@ -23,6 +23,18 @@ header {
   margin-bottom: 30px;
 }
 
+@media(max-width: 1024px) { 
+  .navbar-container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .actual-content {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
 @media(min-width: 1024px) {
   .navbar-container {
     border-bottom: 1px solid lightgray;
@@ -63,8 +75,9 @@ article {
   font-size: 0.65rem;
 }
 
-footer {
-  margin-top: 30px;
+#footer {
+  margin: 0;
+  padding: 30px;
 }
 
 
@@ -106,4 +119,8 @@ footer {
 
 .projects {
   margin-top: 30px;
+}
+
+#disqus_thread {
+  margin: 30px;
 }
