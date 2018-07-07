@@ -13,7 +13,7 @@ title: Home
       <br>
       I live in Antibes, France. I work for IBM as a technical product manager focusing on the IBM Cloud and its derivatives. I'm
       an experienced software developer, team lead and public speaker. Every day I work with cloud related technologies whether
-      it is a microservice with Node.js or a mobile app with React Native. Keeping track with the development trends and
+      it is a microservice with Node.js or a serverless mobile app with React Native. Keeping track with the development trends and
       eating IBM own dog food give great opportunities to provide internal feedback on developer needs. I also shoot portraits,
       concerts, scenery, cities.
     </div>
