@@ -4,7 +4,11 @@ layout: magazine
 
 <div class="columns is-gapless">
     <div class="column is-12">
-      <img id="banner" src="/assets/banners/0.jpg"/>
+			{% if page.banner %}
+			<img src="{{ page.banner }}"/>
+			{% else %}
+			<img id="banner" src="/assets/banners/0.jpg"/>
+			{% endif %}
     </div>
   </div>
   
