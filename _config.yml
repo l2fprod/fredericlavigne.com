@@ -1,5 +1,7 @@
 markdown: kramdown
 
+include: [ ".well-known" ]
+
 plugins:
   - jekyll-paginate
   - jekyll-seo-tag
