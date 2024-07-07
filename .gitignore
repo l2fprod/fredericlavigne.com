@@ -1,2 +1,6 @@
 ledmotions/private
 _site
+node_modules
+resume.json
+resume/output
+.DS_Store

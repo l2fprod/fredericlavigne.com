@@ -64,3 +64,5 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - CNAME
+  - resume
+
